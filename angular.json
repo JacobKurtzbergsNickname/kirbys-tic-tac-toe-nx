@@ -1,0 +1,85 @@
+{
+    "version": 1,
+    "newProjectRoot": "apps",
+    "projects": {
+      "my-app": {
+        "root": "apps/my-app",
+        "sourceRoot": "apps/my-app/src",
+        "projectType": "application",
+        "architect": {
+          "build": {
+            "builder": "@angular-devkit/build-angular:browser",
+            "options": {
+              "outputPath": "dist/apps/my-app",
+              "index": "apps/my-app/src/index.html",
+              "main": "apps/my-app/src/main.ts",
+              "polyfills": "apps/my-app/src/polyfills.ts",
+              "tsConfig": "apps/my-app/tsconfig.app.json",
+              "assets": ["apps/my-app/src/favicon.ico", "apps/my-app/src/assets"],
+              "styles": ["apps/my-app/src/styles.scss"],
+              "scripts": []
+            },
+            "configurations": {
+              "production": {
+                "fileReplacements": [
+                  {
+                    "replace": "apps/my-app/src/environments/environment.ts",
+                    "with": "apps/my-app/src/environments/environment.prod.ts"
+                  }
+                ],
+                "optimization": true,
+                "outputHashing": "all",
+                "sourceMap": false,
+                "extractCss": true,
+                "namedChunks": false,
+                "aot": true,
+                "extractLicenses": true,
+                "vendorChunk": false,
+                "buildOptimizer": true
+              }
+            }
+          },
+          "serve": {
+            "builder": "@angular-devkit/build-angular:dev-server",
+            "options": {
+              "browserTarget": "my-app:build"
+            },
+            "configurations": {
+              "production": {
+                "browserTarget": "my-app:build:production"
+              }
+            }
+          },
+          "extract-i18n": {
+            "builder": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+              "browserTarget": "my-app:build"
+            }
+          },
+          "test": {
+            "builder": "@angular-devkit/build-angular:karma",
+            "options": {
+              "main": "apps/my-app/src/test.ts",
+              "polyfills": "apps/my-app/src/polyfills.ts",
+              "tsConfig": "apps/my-app/tsconfig.spec.json",
+              "karmaConfig": "apps/my-app/karma.conf.js",
+              "assets": ["apps/my-app/src/favicon.ico", "apps/my-app/src/assets"],
+              "styles": ["apps/my-app/src/styles.scss"],
+              "scripts": []
+            }
+          }
+        }
+      }
+    },
+    "defaultProject": "my-app",
+    "schematics": {
+      "@nrwl/angular:component": {
+        "style": "scss"
+      }
+    },
+    "cli": {
+      "defaultCollection": "@nrwl/angular",
+      "analytics": "85df5c2a-071a-4303-8dd2-b75ff3beba94"
+    }
+  }
+  

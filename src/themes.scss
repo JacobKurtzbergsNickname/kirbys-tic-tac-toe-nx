@@ -1,0 +1,6 @@
+@import "~@nebular/theme/styles/theming";
+@import "~@nebular/theme/styles/themes/cosmic";
+
+$nb-themes: ng-register-theme((
+    
+), cosmic, cosmic);

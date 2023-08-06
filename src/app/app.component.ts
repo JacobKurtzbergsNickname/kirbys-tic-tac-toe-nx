@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { SquareComponent } from './square/square.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { BoardComponent } from './board/board.component';
+import { Component, InjectionToken, OnInit } from '@angular/core';
+
+import { NbThemeService, NbThemeOptions  } from "@nebular/theme";
+
+export const THEME_OPTIONS_TOKEN = new InjectionToken<NbThemeOptions>('Custom Theme Options');
 
 @Component({
-  standalone: true,
-  imports: [NxWelcomeComponent, RouterModule, SquareComponent, BoardComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers: [NbThemeService]
 })
-export class AppComponent {
-  title = 'kirbys-tic-tac-toe-nx';
-}
+export class AppComponent implements OnInit {
+    title = 'Kirbys TicTacToe';
+
+    // constructor(private themeService: NbThemeService, @Inject(THEME_OPTIONS_TOKEN) private themeOptions: NbThemeOptions) {}
+    constructor(private themeService: NbThemeService) {}
+  
+    ngOnInit() {
+        //   this.themeService.changeTheme(this.themeOptions.name);
+        this.themeService.changeTheme("cosmic");
+        console.log("Initialised")
+    }
+  }

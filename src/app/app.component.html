@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Kirby's Tic-Tac-Toe</title>
-  <!-- Other meta tags, stylesheets, etc. can go here -->
-</head>
-<body>
-    <app-board></app-board>
-    <router-outlet></router-outlet>
-</body>
-</html>
+<nb-layout>
+
+    <nb-layout-header fixed>
+        <h1>Sommat</h1>
+
+    </nb-layout-header>
+  
+    <nb-layout-column>
+  
+      <app-board></app-board>
+      
+      <router-outlet></router-outlet>
+    </nb-layout-column>
+  
+    <nb-layout-footer fixed>
+    </nb-layout-footer>
+</nb-layout>

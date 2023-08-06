@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SquareComponent } from '../square/square.component';
 
 @Component({
   selector: 'app-board',
-  standalone: true,
-  imports: [CommonModule, SquareComponent],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
 })
@@ -15,37 +11,20 @@ export class BoardComponent implements OnInit {
     xIsNext = true;
     winner = "";
 
-    constructor() {
-        console.groupCollapsed("BoardComponent");
-        console.log(BoardComponent);
-        console.groupEnd();
-    };
-
     ngOnInit(): void {
         this.newGame()
     }
 
     newGame(){
-        console.groupCollapsed("newGame");
-        console.log(this.newGame);
-        console.groupEnd();
-
         this.squares = Array(9).fill("");
         this.winner = "";
     };
 
     get player():string{
-        console.groupCollapsed("player");
-        console.log(this.player);
-        console.groupEnd();
         return this.xIsNext ? '"O"' : '"X"'
     };
 
     makeMove(idx: number){
-        console.groupCollapsed("makeMove");
-        console.log(this.makeMove);
-        console.groupEnd();
-
         if(!this.squares[idx]){
             this.squares.splice(idx, 1, this.player);
             this.xIsNext = !this.xIsNext;
